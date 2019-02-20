@@ -55,6 +55,9 @@
   <ItemGroup>
     <Folder Include="auth\" />
     <Folder Include="models\" />
+    <Folder Include="public\images\" />
+    <Folder Include="public\js\" />
+    <Folder Include="templates\" />
     <Folder Include="public\" />
     <Folder Include="public\stylesheets\" />
     <Folder Include="views\" />

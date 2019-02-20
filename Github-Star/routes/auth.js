@@ -1,5 +1,5 @@
 ﻿var passportGitHub = require('../auth/github');
-var server = new hapi.Server();
+const server = new hapi.Server();
 
 server.route([
     {
@@ -32,7 +32,7 @@ server.route([
         path: '/logout',
         handler: function (req, res) {
             req.logout();
-            res.redirect('/');
+            res.redirect('/login');
         }
     },
     {
@@ -42,7 +42,7 @@ server.route([
         handler: function (request, reply) {
             passportGitHub.authenticate('github', {
                 scope: ['user:email']
-            }
+            });
         }
     },
     {
@@ -53,8 +53,8 @@ server.route([
             passportGitHub.authenticate('github', { failureRedirect: '/login' }),
                 function (req, res) {
                     // Successful authentication, redirect home.
-                    res.redirect('/');
-                }
+                    res.redirect('/github/users/{username}/profile');
+                };
         }
     }
 ]);

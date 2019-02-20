@@ -1,5 +1,5 @@
 ﻿
-var server = new hapi.Server();
+const server = new hapi.Server();
 
 
 server.route([
