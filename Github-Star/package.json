@@ -1,15 +1,13 @@
 {
-  "name": "paper-clicks",
+  "name": "github-star",
   "version": "0.0.0",
-  "description": "PaperClicks",
+  "description": "Github-Star",
   "main": "server.js",
   "author": {
     "name": ""
   },
-  "devDependencies": {
-    "@types/node": "^8.0.14"
-  },
   "dependencies": {
+    "@angular/cli": "^7.3.2",
     "hapi": "^18.1.0",
     "mongoose": "^5.4.13",
     "passport": "^0.4.0",
