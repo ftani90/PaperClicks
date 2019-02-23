@@ -5,7 +5,7 @@ const server = new hapi.Server();
 server.route([
 {
     method: 'GET',
-        path: '/github/users/{username}/profile',
+        path: '/github/users/'+ username +'/profile',
             handler: function (request, reply) {
 
             }
