@@ -6,6 +6,9 @@
     <RootNamespace>Github-Star</RootNamespace>
     <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
     <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
+    <EnableTypeScript>true</EnableTypeScript>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -33,7 +36,7 @@
     <Compile Include="app.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="auth\github.js">
+    <Compile Include="db.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="mhan-github-paperclicks\e2e\protractor.conf.js" />
@@ -1881,16 +1884,13 @@
     <Compile Include="mhan-github-paperclicks\node_modules\zone.js\dist\zone_externs.js" />
     <Compile Include="mhan-github-paperclicks\node_modules\zone.js\lib\closure\zone_externs.js" />
     <Compile Include="mhan-github-paperclicks\src\karma.conf.js" />
-    <Compile Include="models\models.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="routes\auth.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="routes\users.js">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="server.js" />
+    <Content Include="db.json">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="libman.json" />
     <Content Include="mhan-github-paperclicks\.editorconfig" />
     <Content Include="mhan-github-paperclicks\.gitignore" />
@@ -3062,6 +3062,12 @@
     <Content Include="mhan-github-paperclicks\README.md" />
     <Content Include="mhan-github-paperclicks\src\app\app.component.css" />
     <Content Include="mhan-github-paperclicks\src\app\app.component.html" />
+    <Content Include="mhan-github-paperclicks\src\app\home\home.component.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="mhan-github-paperclicks\src\app\login\login.component.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="mhan-github-paperclicks\src\assets\.gitkeep" />
     <Content Include="mhan-github-paperclicks\src\browserslist" />
     <Content Include="mhan-github-paperclicks\src\favicon.ico" />
@@ -3073,13 +3079,9 @@
     <Content Include="mhan-github-paperclicks\tsconfig.json" />
     <Content Include="mhan-github-paperclicks\tslint.json" />
     <Content Include="package.json" />
-    <Content Include="public\stylesheets\style.css">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="auth\" />
     <Folder Include="mhan-github-paperclicks\" />
     <Folder Include="mhan-github-paperclicks\e2e\" />
     <Folder Include="mhan-github-paperclicks\e2e\src\" />
@@ -4369,15 +4371,13 @@
     <Folder Include="mhan-github-paperclicks\node_modules\zone.js\lib\zone-spec\" />
     <Folder Include="mhan-github-paperclicks\src\" />
     <Folder Include="mhan-github-paperclicks\src\app\" />
+    <Folder Include="mhan-github-paperclicks\src\app\login\" />
+    <Folder Include="mhan-github-paperclicks\src\app\home\" />
+    <Folder Include="mhan-github-paperclicks\src\app\models\" />
+    <Folder Include="mhan-github-paperclicks\src\app\services\" />
     <Folder Include="mhan-github-paperclicks\src\assets\" />
     <Folder Include="mhan-github-paperclicks\src\environments\" />
-    <Folder Include="models\" />
-    <Folder Include="public\images\" />
-    <Folder Include="public\js\" />
     <Folder Include="templates\" />
-    <Folder Include="public\" />
-    <Folder Include="public\stylesheets\" />
-    <Folder Include="views\" />
     <Folder Include="routes\" />
   </ItemGroup>
   <ItemGroup>
@@ -4786,6 +4786,24 @@
     <TypeScriptCompile Include="mhan-github-paperclicks\src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="mhan-github-paperclicks\src\app\app.component.ts" />
     <TypeScriptCompile Include="mhan-github-paperclicks\src\app\app.module.ts" />
+    <TypeScriptCompile Include="mhan-github-paperclicks\src\app\home\home.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="mhan-github-paperclicks\src\app\login\login.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="mhan-github-paperclicks\src\app\models\user.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="mhan-github-paperclicks\src\app\profile.service.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="mhan-github-paperclicks\src\app\services\authentication.service.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="mhan-github-paperclicks\src\app\services\user.service.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="mhan-github-paperclicks\src\environments\environment.prod.ts" />
     <TypeScriptCompile Include="mhan-github-paperclicks\src\environments\environment.ts" />
     <TypeScriptCompile Include="mhan-github-paperclicks\src\main.ts" />

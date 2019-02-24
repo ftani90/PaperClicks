@@ -1,0 +1,23 @@
+{
+  {
+    "collection": "",
+    "db_name": "",
+    "db_user": "ro-user",
+    "port": "27017",
+    "replicaSet": "Github-shard-0",
+    "retryWrites": true,
+    "shards_members": [
+      "github-shard-00-00-nrzia.mongodb.net",
+      "github-shard-00-00-nrzia.mongodb.net",
+      "github-shard-00-00-nrzia.mongodb.net"
+    ]
+  },
+  "exclude": [
+    "**/bin",
+    "**/bower_components",
+    "**/jspm_packages",
+    "**/node_modules",
+    "**/obj",
+    "**/platforms"
+  ]
+}

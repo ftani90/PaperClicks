@@ -1,8 +1,8 @@
-﻿const mongoose = require('mongoose');
+﻿const config = require('db.json');
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://' + db_user + ':MuULEHHQnZ52Z6EE@' + shards_members[0] + ':' + port + shards_members[1] + ':' + port + shards_members[2] + ':' + port + '/' + db_name+'?ssl=true&'+ replicaSet +'&authSource=admin&'+ retryWrites);
 
-mongoose.connect('mongodb://ro-user:MuULEHHQnZ52Z6EE@github-shard-00-00-nrzia.mongodb.net:27017,github-shard-00-01-nrzia.mongodb.net:27017,github-shard-00-02-nrzia.mongodb.net:27017/test?ssl=true&replicaSet=Github-shard-0&authSource=admin&retryWrites=true');
-
-var db = mongoose.connection;
+//var db = mongoose.connection;
 
 var UserSchema = new mongoose.Schema({
     username: String,
@@ -14,7 +14,7 @@ var UserSchema = new mongoose.Schema({
     location: String,
     email: String,
     bio: String,
-    hireable : Boolean,
+    hireable: Boolean,
     updated_at: { type: Date, default: Date.now }
 });
 
